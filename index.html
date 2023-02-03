@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>LOG IN FORM!</title>
+        <meta  name="author" content="Maricris A. Pablo">
+
+        <script>
+            function toLOGIN()
+            {
+                var userName = document.login.userName.value;
+                var userPass = document.login.userPass.value;
+
+                if(userName == "mario" && userPass == "luigi")
+                {
+                    alert("WELCOME " + userName + "!")
+                }
+                else
+                {
+                    alert("Please enter a valid Username and Password!")
+                }
+                window.location.reload();
+            }
+
+            function toShowPASS()
+            {
+                var l = document.getElementById("Password_is_Hidden");
+                if(l.type == "password")
+                {
+                    l.type = "text";
+                }
+                else
+                {
+                    l.type = "password";
+                }
+            }
+
+            function mOVER(m)
+            {
+                m.style.background = "#7d8085";
+            }
+
+            function mOUT(i)
+            {
+                i.style.background = "#ffffff";
+            }
+
+            function mUP(n)
+            {
+                n.style.background = "#ffffff";
+            }
+
+            function mDOWN(a)
+            {
+                a.style.background = "#b08bad";
+            }
+        </script>
+
+    </head>
+
+    <body bgcolor=" #89CFF0">
+        <font face="Poppins Light">
+        <center>
+            <br />
+            <form name="login">
+                USERNAME
+                <br>
+                <input type="text" 
+                    name="userName" placeholder="Enter your Username:"
+                    onmouseover="mOVER(this)" onmouseout="mOUT(this)"
+                >
+                <br>
+                PASSWORD
+                <br>
+                <input type="password" 
+                    name="userPass" placeholder="Enter your Password:"
+                    id="Password_is_Hidden" onmouseover="mOVER(this)"
+                    onmouseout="mOUT(this)"
+                >
+                <br>
+                <!--LOG-IN BUTTON-->
+                <input type="button" name="login" value="LogIn" 
+                    onclick="toLOGIN()"  onmouseup="mUP(this)"
+                    onmousedown="mDOWN(this)"
+                >
+                <br>
+                <!--TO SHOW PASS-->
+                <input type="checkbox" name="tick" onclick="toShowPASS()">SHOW PASSWORD!
+            </form>
+        </center>
+        </font>
+    </body>
+    
+</html>
