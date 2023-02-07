@@ -1,92 +1,50 @@
-<html>
-    <head>
-        <title>LOG IN FORM!</title>
-        <meta  name="author" content="Maricris A. Pablo">
+<!DOCTYPE html>
+<html lang="en">
 
-        <script>
-            function toLOGIN()
+<head>
+    <meta name="author" content="Maricris A. Pablo">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM (PABLO)</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+
+    <script>
+        
+        function toShowPASS()
+        {
+            var l = document.getElementById("password");
+            if(l.type == "password")
             {
-                var userName = document.login.userName.value;
-                var userPass = document.login.userPass.value;
-
-                if(userName == "mario" && userPass == "luigi")
-                {
-                    alert("WELCOME " + userName + "!")
-                }
-                else
-                {
-                    alert("Please enter a valid Username and Password!")
-                }
-                window.location.reload();
+                l.type = "text";
             }
-
-            function toShowPASS()
+            else
             {
-                var l = document.getElementById("Password_is_Hidden");
-                if(l.type == "password")
-                {
-                    l.type = "text";
-                }
-                else
-                {
-                    l.type = "password";
-                }
+                l.type = "password";
             }
+        }
+        
+    </script>
+</head>
 
-            function mOVER(m)
-            {
-                m.style.background = "#7d8085";
-            }
-
-            function mOUT(i)
-            {
-                i.style.background = "#ffffff";
-            }
-
-            function mUP(n)
-            {
-                n.style.background = "#ffffff";
-            }
-
-            function mDOWN(a)
-            {
-                a.style.background = "#b08bad";
-            }
-        </script>
-
-    </head>
-
-    <body bgcolor=" #89CFF0">
-        <font face="Poppins Light">
-        <center>
-            <br />
-            <form name="login">
-                USERNAME
-                <br>
-                <input type="text" 
-                    name="userName" placeholder="Enter your Username:"
-                    onmouseover="mOVER(this)" onmouseout="mOUT(this)"
-                >
-                <br>
-                PASSWORD
-                <br>
-                <input type="password" 
-                    name="userPass" placeholder="Enter your Password:"
-                    id="Password_is_Hidden" onmouseover="mOVER(this)"
-                    onmouseout="mOUT(this)"
-                >
-                <br>
-                <!--LOG-IN BUTTON-->
-                <input type="button" name="login" value="LogIn" 
-                    onclick="toLOGIN()"  onmouseup="mUP(this)"
-                    onmousedown="mDOWN(this)"
-                >
-                <br>
-                <!--TO SHOW PASS-->
-                <input type="checkbox" name="tick" onclick="toShowPASS()">SHOW PASSWORD!
-            </form>
-        </center>
-        </font>
-    </body>
-    
+<body onload='document.form1.email.focus()'>
+    <main id="main-holder">
+    <h1 id="login-header">LOGIN FORM</h1>
+    <div id="login-error-msg-holder">
+      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+    <form name= form1 id="login-form">
+        <div class="container">
+            <input type="text" name="email" id="email" class="login-form-field" placeholder="Email" required>
+            <br>
+            <br>
+            <input type="password" id="password" class="login-form-field" placeholder="Password" name="password">  
+            <input type="checkbox" name="tick" onclick="toShowPASS()">
+            <br>
+            <br>
+            <input type="submit" value="SUBMIT" id="login-form-submit" onclick="ValidateEmail(document.form1.email); checkPassword(password)">
+        </div>
+    </form>
+  </main>
+</body>
 </html>
